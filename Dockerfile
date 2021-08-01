@@ -1,7 +1,7 @@
 FROM node:16-alpine AS build
 WORKDIR /usr/src/app
+COPY tailwind.config.js /usr/src/app/tailwind.config.js
 RUN npm install tailwindcss tailwind-config-viewer; \
- npx tailwindcss init --jit --full; \
  npx tailwind-config-viewer export tcv-out
 
 FROM caddy:2-alpine
